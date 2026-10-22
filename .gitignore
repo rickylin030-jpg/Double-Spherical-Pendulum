@@ -41,10 +41,14 @@ wandb/settings
 # --- Generated data and outputs ------------------------------------------------
 datasets/
 data/
-*.pz                       # cached RigidBodyDataset trajectories
-/lightning_logs/           # stray local runs (W&B run checkpoints are kept)
+# cached RigidBodyDataset trajectories
+*.pz
+# stray local runs (the W&B run checkpoints under experiments/ are kept)
+/lightning_logs/
 *.mp4
 *.gif
+# animations exported from the notebook for display on GitHub
+!assets/*.gif
 
 # --- Editors / tooling ---------------------------------------------------------
 .vscode/

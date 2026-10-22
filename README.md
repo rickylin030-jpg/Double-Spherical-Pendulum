@@ -14,6 +14,20 @@ The system has four generalized coordinates $(\theta_1, \phi_1, \theta_2, \phi_2
 - **Constrained Lagrangian Neural Networks (CLNN)** — three training experiments learning the DSP dynamics in Cartesian coordinates with explicit holonomic constraints.
 - **Lagrangian Neural Network (LNN)** — a JAX implementation adapted from Cranmer et al. to the four-coordinate DSP state.
 
+## Animations
+
+Uniform conical motion, in which the two links rotate about the vertical axis at a fixed shape — one of the relative equilibria the chaos analysis perturbs away from:
+
+![Aligned conical solution](assets/aligned_conical.gif)
+
+Three more are in [`assets/`](assets/), exported from the notebook's animation cells:
+
+| Animation | Shows | Size |
+|---|---|---|
+| [`general_trajectory.gif`](assets/general_trajectory.gif) | A generic trajectory from arbitrary initial conditions | 4.9 MB |
+| [`antialigned_conical.gif`](assets/antialigned_conical.gif) | The anti-aligned conical solution, links separated by $\pi$ in azimuth | 1.5 MB |
+| [`hamiltonian_trajectory.gif`](assets/hamiltonian_trajectory.gif) | The same dynamics integrated from Hamilton's equations | 3.8 MB |
+
 ## Repository layout
 
 ```
@@ -66,6 +80,10 @@ The runs committed under `experiments/` were produced in offline mode.
 ### Notebooks
 
 `notebooks/dsp.ipynb` is the main document and reads top to bottom; it uses `%matplotlib widget`, so run it in JupyterLab with `ipympl` installed. `notebooks/dsp_lnn.ipynb` is self-contained and does not require the `lnn` package.
+
+**[Read `dsp.ipynb` on nbviewer →](https://nbviewer.org/github/rickylin030-jpg/Double-Spherical-Pendulum/blob/main/notebooks/dsp.ipynb)** — renders more reliably than GitHub's own viewer for a notebook this size.
+
+The animation cells embed every frame in the notebook, so their outputs are not committed. The export cell after each one writes a standalone GIF to `assets/` instead; run those cells to regenerate them.
 
 The CLNN evaluation section locates the committed W&B runs relative to the repository root, so it works on any checkout. If you launch Jupyter from somewhere other than the repository, point it at the right place:
 
