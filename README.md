@@ -16,17 +16,23 @@ The system has four generalized coordinates $(\theta_1, \phi_1, \theta_2, \phi_2
 
 ## Animations
 
-Uniform conical motion, in which the two links rotate about the vertical axis at a fixed shape — one of the relative equilibria the chaos analysis perturbs away from:
+Exported from the notebook's animation cells into [`assets/`](assets/). Each shows the generalized coordinates against time, the bobs moving in three dimensions, and the state-space projection, side by side. About 12 MB in total, so give the page a moment on a slow connection.
+
+**Aligned conical motion** — the two links rotate about the vertical axis at a fixed shape, one of the relative equilibria that the chaos analysis perturbs away from:
 
 ![Aligned conical solution](assets/aligned_conical.gif)
 
-Three more are in [`assets/`](assets/), exported from the notebook's animation cells:
+**Anti-aligned conical motion** — the same kind of relative equilibrium, with the links held $\pi$ apart in azimuth:
 
-| Animation | Shows | Size |
-|---|---|---|
-| [`general_trajectory.gif`](assets/general_trajectory.gif) | A generic trajectory from arbitrary initial conditions | 4.9 MB |
-| [`antialigned_conical.gif`](assets/antialigned_conical.gif) | The anti-aligned conical solution, links separated by $\pi$ in azimuth | 1.5 MB |
-| [`hamiltonian_trajectory.gif`](assets/hamiltonian_trajectory.gif) | The same dynamics integrated from Hamilton's equations | 3.8 MB |
+![Anti-aligned conical solution](assets/antialigned_conical.gif)
+
+**A generic trajectory** — arbitrary initial conditions, with none of the structure of the conical solutions:
+
+![General trajectory](assets/general_trajectory.gif)
+
+**The Hamiltonian formulation** — the same dynamics integrated from Hamilton's canonical equations rather than the Euler–Lagrange equations:
+
+![Hamiltonian trajectory](assets/hamiltonian_trajectory.gif)
 
 ## Repository layout
 
