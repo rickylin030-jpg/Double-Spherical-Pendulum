@@ -1,0 +1,33 @@
+# Double spherical pendulum — Python dependencies
+# Version floors reflect the environment the committed experiments were run in.
+# For a specific CUDA build of torch, install it first from https://pytorch.org
+# and then run: pip install -r requirements.txt
+
+# --- Core: analytical dynamics + numerical integration -----------------------
+numpy>=2.3.3
+scipy>=1.16.2
+sympy>=1.14.0
+networkx>=3.6.1
+matplotlib>=3.10.7
+pillow>=11.3.0
+
+# --- CLNN training (pl_trainer.py, biases/) ----------------------------------
+torch>=2.13.0
+torchdiffeq>=0.2.5
+pytorch-lightning>=2.6.6
+torchmetrics>=1.9.0
+wandb>=0.30.0
+
+# --- Notebooks ---------------------------------------------------------------
+jupyterlab>=4.4.9
+ipywidgets>=8.1.7
+ipympl>=0.9.8          # required by `%matplotlib widget` in notebooks/dsp.ipynb
+pandas>=3.0.0
+seaborn>=0.13.2
+xarray>=2025.1.0
+tqdm>=4.70.1
+
+# --- JAX LNN (notebooks/dsp_lnn.ipynb only) ----------------------------------
+# CPU wheels; for GPU see https://docs.jax.dev/en/latest/installation.html
+jax>=0.11.1
+jaxlib>=0.11.1

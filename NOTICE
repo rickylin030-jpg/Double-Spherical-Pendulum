@@ -1,0 +1,108 @@
+Double Spherical Pendulum
+Copyright (c) 2026 Ricky
+
+The MIT License in LICENSE applies to the original work in this repository:
+
+  - biases/systems/double_spherical_pendulum.py
+  - the stratified-sampling additions in biases/datasets.py
+  - the PyTorch Lightning 2.x compatibility changes in pl_trainer.py
+    (marked with "# Adapted" comments)
+  - notebooks/dsp.ipynb, apart from the course-derived scaffolding in item 3
+  - the double-spherical-pendulum adaptation in notebooks/dsp_lnn.ipynb
+  - README.md, requirements.txt, .gitignore
+
+It does not apply to the third-party code described below.
+
+
+================================================================================
+1. biases/ - Constrained Hamiltonian and Lagrangian Neural Networks
+================================================================================
+
+Source:  https://github.com/mfinzi/constrained-hamiltonian-neural-networks
+Paper:   Finzi, M., Wang, K. A., & Wilson, A. G. (2020). Simplifying
+         Hamiltonian and Lagrangian Neural Networks via Explicit Constraints.
+         NeurIPS 2020. https://arxiv.org/abs/2010.13581
+
+Status:  The upstream repository publishes no license file (verified
+         2026-10-21: no LICENSE, LICENCE, COPYING or equivalent at its root,
+         and the GitHub API reports no detected license), so its authors
+         retain all rights in it.
+
+         Permission to release this adapted code publicly, with clear
+         attribution to the paper and to the upstream repository, was granted
+         by Ke Alexander Wang, a co-author of the paper, in correspondence of
+         October 22, 2026. That permission does not relicense the upstream code:
+         copyright remains with the original authors, and anyone wishing to
+         reuse these files should seek their own permission.
+
+         The following files originate upstream and are included here under
+         that permission:
+
+           biases/systems/rigid_body.py
+           biases/models/constrained_lnn.py
+           biases/models/utils.py
+           biases/dynamics/lagrangian.py
+           biases/dynamics/hamiltonian.py
+           biases/animation.py
+           biases/utils.py
+           biases/datasets.py        (apart from the additions noted above)
+           pl_trainer.py             (apart from the changes noted above)
+
+
+================================================================================
+2. notebooks/dsp_lnn.ipynb - Lagrangian Neural Networks
+================================================================================
+
+Source:  https://github.com/MilesCranmer/lagrangian_nns
+License: Apache License 2.0 - full text in LICENSES/Apache-2.0-lagrangian_nns.txt
+Paper:   Cranmer, M., Greydanus, S., Hoyer, S., Battaglia, P., Spergel, D., &
+         Ho, S. (2020). Lagrangian Neural Networks. ICLR 2020 Workshop
+         DeepDiffEq. https://arxiv.org/abs/2003.04630
+
+Changes: Required notice of modification under Apache License 2.0, section 4(b).
+         The upstream planar double-pendulum example was adapted to the double
+         spherical pendulum. The state was extended from two generalized
+         coordinates to four (theta_1, phi_1, theta_2, phi_2), with the
+         corresponding Lagrangian, analytical reference dynamics, data
+         generation and animation code rewritten for the three-dimensional
+         system. The network architecture, Euler-Lagrange formulation,
+         optimizer and pseudoinverse-based solve for the generalized
+         accelerations are unchanged from upstream.
+
+
+================================================================================
+3. notebooks/dsp.ipynb - pendulum, animation and plotting scaffolding
+================================================================================
+
+Source:  https://github.com/jdbrice/5300-JB
+         OSU Physics 5300, "Theoretical and Computational Mechanics"
+Author:  The course notebooks reused here are credited to Dick Furnstahl
+         (furnstahl.1@osu.edu), Ohio State University, with revision dates in
+         January 2019.
+
+License: The upstream LICENSE file states that the project is released under
+         a Creative Commons BY-NC 4.0 license
+         (https://creativecommons.org/licenses/by-nc/4.0/), though the file
+         itself names a different project ("BRST_nuclear"); verified
+         2026-10-21. CC BY-NC 4.0 permits sharing and adaptation with
+         attribution, for non-commercial purposes. These portions are
+         therefore NOT covered by the MIT License in LICENSE.
+
+         Publication of this project was suggested by the course instructor,
+         who maintains the upstream repository.
+
+Derived: The following are adapted from the course notebooks
+         (Multiple_pendulum_plots_Section_12.*.ipynb,
+         pendulum_animation_notebook_v3.ipynb, Hamiltonian_pendulum.ipynb and
+         Liouville_theorem_visualization.ipynb):
+
+           the Pendulum class and its solve_ode(..., abserr, relerr) pattern
+           the plot_y_vs_x and start_stop_indices helpers
+           the AnimationPendulumPlot class
+
+Changes: The pendulum classes were extended from one or two planar coordinates
+         to the four generalized coordinates of the double spherical pendulum,
+         with new equations of motion, and were subclassed as
+         HamiltonianPendulum, HamiltonianAnimationPendulumPlot and
+         NormalModeHamiltonianPendulum. The Liouville visualization was
+         adapted to the reduced normal-mode Hamiltonian of the DSP.

@@ -1,0 +1,67 @@
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Virtual environments ------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# --- Jupyter -------------------------------------------------------------------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.jupyter/
+profile_default/
+ipython_config.py
+
+# --- Weights & Biases ----------------------------------------------------------
+# Keep the committed artifacts (args.csv, test_log.pt, checkpoints) but drop the
+# raw run streams and internal logs, which are large and regenerable.
+wandb/settings
+**/wandb/latest-run
+**/wandb/debug*.log
+**/wandb/*run-*/logs/
+**/wandb/*run-*/run-*.wandb
+**/wandb/*run-*/run-*.wandb.syncstate
+**/wandb/*run-*/tmp/
+**/wandb/*run-*/files/media/
+**/wandb/*run-*/files/config.yaml
+**/wandb/*run-*/files/wandb-*.json
+**/wandb/*run-*/files/output.log
+**/wandb/*run-*/files/requirements.txt
+
+# --- Generated data and outputs ------------------------------------------------
+datasets/
+data/
+# cached RigidBodyDataset trajectories
+*.pz
+# stray local runs (the W&B run checkpoints under experiments/ are kept)
+/lightning_logs/
+*.mp4
+*.gif
+# animations exported from the notebook for display on GitHub
+!assets/*.gif
+
+# --- Editors / tooling ---------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# --- OS ------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor workspace files (may reference unrelated local folders)
+*.code-workspace
